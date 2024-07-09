@@ -1,0 +1,73 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.LoginButton {
+	-fx-background-color: #263F73;
+}
+
+.LoginButton:hover,
+.LoginButton:focused {
+	-fx-background-color: #55295b;
+}
+
+.navigationButton {
+	-fx-background-color: #fff;
+}
+
+.navigationButton:hover {
+	-fx-text-fill: #fff;
+	-fx-background-color: #55295b;
+}
+
+.logoutBtn:hover {
+	-fx-cursor:hand;
+}
+
+.CalendarUpButton,
+.CalendarDownButton {
+	-fx-background-color: #fff;
+}
+
+.CalendarUpButton:hover,
+.CalendarDownButton:hover {
+	-fx-text-fill: #fff;
+	-fx-background-color: #55295b;
+}
+
+.ScheduleDetailButton,
+.ScheduleRegiButton,
+.ScheduleUpdButton,
+.ScheduleDelButton {
+	-fx-text-fill: #263F73;
+	-fx-background-color: #fff;
+}
+
+.ScheduleDetailButton:hover,
+.ScheduleRegiButton:hover,
+.ScheduleUpdButton:hover,
+.ScheduleDelButton:hover {
+	-fx-text-fill: #fff;
+	-fx-background-color: #263F73;
+}
+
+.labelSchedule {
+	-fx-text-fill: #263F73;
+}
+
+.labelSchedule:hover {
+	-fx-text-fill: #fff;
+	-fx-background-color: #00a497;
+}
+
+.btnButton1,
+.btnButton2 {
+	-fx-background-color: #263F73;
+}
+
+.btnButton1:hover,
+.btnButton2:hover {
+	-fx-background-color: #55295b;
+}
+
+
+
+

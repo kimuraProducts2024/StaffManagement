@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22">
+   <children>
+      <Label text="応募者管理" textAlignment="JUSTIFY" textFill="#1010e8">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow height="5.86" radius="2.0700000000000003" width="4.42">
+               <color>
+                  <Color red="0.1731237769126892" green="0.3815789520740509" blue="0.3746304512023926" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+   </children>
+</StackPane>
