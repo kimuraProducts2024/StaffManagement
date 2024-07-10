@@ -68,6 +68,20 @@
 	-fx-background-color: #55295b;
 }
 
+.vBoxSchedule {
+	-fx-border-style: solid;
+}
 
+.ScheduleButton {
+	-fx-background-color: #263F73;
+}
 
+.ScheduleDeleteButton {
+	-fx-text-fill: #ea545b;
+	-fx-background-color: #263F73;
+}
 
+.ScheduleButton:hover,
+.ScheduleDeleteButton:hover {
+	-fx-background-color: #55295b;
+}

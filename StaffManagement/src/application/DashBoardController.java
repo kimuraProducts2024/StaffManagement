@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -122,6 +123,32 @@ public class DashBoardController implements Initializable {
 	public void variousLedgerBtn_Click(MouseEvent event) throws IOException {
 		loadPage("VariousLedger");
 	}
+
+	// 面接日程管理ボタンクリック
+	// 引数
+	// event：ActionEvent
+	// 戻り値
+	// なし
+	@FXML
+	public void scheduleBtn_Click(ActionEvent event) throws IOException {
+		loadPage("ScheduleMng");
+	}
+
+	// 面接日程詳細ボタンクリック
+	// 引数
+	// event：ActionEvent
+	// 戻り値
+	// なし
+	@FXML
+	public void scheduleDetailBtn_Click(ActionEvent event) throws IOException {
+		loadPage("ScheduleDetail");
+	}
+
+
+
+
+
+
 
 	// 画面表示設定処理
 	// 引数

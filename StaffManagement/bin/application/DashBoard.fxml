@@ -107,8 +107,8 @@
                                     <DropShadow />
                                  </effect>
                               </Line>
-                              <Button layoutX="187.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="面接日程管理" textFill="#263f73" />
-                              <Button layoutX="284.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="面接日程詳細" textFill="#263f73" />
+                              <Button layoutX="187.0" layoutY="13.0" mnemonicParsing="false" onAction="#scheduleBtn_Click" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="面接日程管理" textFill="#263f73" />
+                              <Button layoutX="284.0" layoutY="13.0" mnemonicParsing="false" onAction="#scheduleDetailBtn_Click" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="面接日程詳細" textFill="#263f73" />
                               <ImageView fitHeight="28.0" fitWidth="34.0" layoutX="23.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../imgs/Schedule.png" />

@@ -104,6 +104,25 @@ public class DataManageService {
 		return da.getData(strSql);
 	}
 
+	// 面接日程テーブルのID（MAX+1）取得
+	// 引数
+	// なし
+	// 戻り値
+	// int：取得したIDの値
+	public int getScheduleIdData() throws SQLException {
+
+		int intResult = 0;
+		strSql = "SELECT MAX(SCHEDULEID) + 1 SCHEDULEID FROM INTERVIEWSCHEDULE WHERE DELETEDATE IS NULL";
+
+		ResultSet rs = da.getData(strSql);
+
+		while(rs.next()) {
+			intResult = rs.getInt("SCHEDULEID");
+		}
+
+		return intResult;
+	}
+
 	// 担当者コンボボックス設定用データ取得
 	// 引数
 	// なし
@@ -126,7 +145,8 @@ public class DataManageService {
 	public ResultSet getScheduleApplicantData(int intTargetScheduleID) throws SQLException {
 
 		strSql = "SELECT " +
-				"	ISC.SCHEDULEID, ISC.STARTDATETIME, ISC.STAFFID1, " +
+				"	ISC.SCHEDULEID, ISC.STARTDATETIME, ISC.ENDDATETIME," +
+				"   ISC.IMPORTANCE, ISC.EXECPLACE, ISC.STAFFID1, " +
 				"	ISC.STAFFID2, ISC.STAFFID3, ISC.APPLICANTID, " +
 				"   APL.APPLICANTNAME, ISC.REMARKS " +
 				"FROM " +
@@ -134,34 +154,15 @@ public class DataManageService {
 				"WHERE " +
 				"	ISC.SCHEDULEID = " + String.valueOf(intTargetScheduleID) + " " +
 				"AND " +
-				"	ISC.APPLICANTID = APL.APPLICANTID";
+				"	ISC.APPLICANTID = APL.APPLICANTID " +
+				"AND " +
+				"   ISC.DELETEDATE IS NULL " +
+				"ORDER BY ISC.STARTDATETIME";
 
 		return da.getData(strSql);
 	}
 
 	// 面接日程テーブル、応募者テーブル情報登録処理
-	// 引数
-	// intTargetScheduleID：検索対象のID
-	// 戻り値
-	// true：処理成功
-	// false：処理失敗
-	public ResultSet insertScheduleApplicantData() throws SQLException {
-
-		strSql = "SELECT " +
-				"	ISC.SCHEDULEID, ISC.STARTDATETIME, ISC.STAFFID1, " +
-				"	ISC.STAFFID2, ISC.STAFFID3, ISC.APPLICANTID, " +
-				"   APL.APPLICANTNAME, ISC.REMARKS " +
-				"FROM " +
-				"	INTERVIEWSCHEDULE ISC, APPLICANT APL " +
-				"WHERE " +
-				"	ISC.SCHEDULEID = " + String.valueOf(0) + " " +
-				"AND " +
-				"	ISC.APPLICANTID = APL.APPLICANTID";
-
-		return da.getData(strSql);
-	}
-
-	// INSERT文実行
 	// 引数
 	// strStartDateTime：開始日時
 	// String strEndDateTime：終了日時
@@ -172,10 +173,36 @@ public class DataManageService {
 	// txtRemarks：備考
 	// 戻り値
 	// int：処理成功した件数
-	public int insertData(String strStartDateTime, String strEndDateTime, int intInterviewerId1, int intInterviewerId2,
+	public int insertScheduleApplicantData(String strStartDateTime, String strEndDateTime, int intInterviewerId1, int intInterviewerId2,
 								int intInterviewerId3, String txtApplicant, String txtRemarks) throws SQLException {
-		return da.insertData(strStartDateTime, strEndDateTime, intInterviewerId1,
-				intInterviewerId2, intInterviewerId3, txtApplicant, txtRemarks);
+		return da.insertScheduleApplicantData(strStartDateTime, strEndDateTime, intInterviewerId1,
+												intInterviewerId2, intInterviewerId3, txtApplicant, txtRemarks);
 	}
 
+	// 面接日程テーブル、応募者テーブル情報更新処理
+	// 引数
+	// intTargetScheduleID：更新対象の面接日程テーブルID
+	// strStartDateTime：開始日時
+	// String strEndDateTime：終了日時
+	// intInterviewerId1：担当者1
+	// intInterviewerId2：担当者2
+	// intInterviewerId3：担当者3
+	// strApplicant：応募者名
+	// strRemarks：備考
+	// 戻り値
+	// int：処理成功した件数
+	public int updateScheduleApplicantData(int intTargetScheduleID, String strStartDateTime, String strEndDateTime, int intInterviewerId1, int intInterviewerId2,
+								int intInterviewerId3, String strApplicant, String strRemarks) throws SQLException {
+		return da.updateScheduleApplicantData(intTargetScheduleID, strStartDateTime, strEndDateTime, intInterviewerId1,
+												intInterviewerId2, intInterviewerId3, strApplicant, strRemarks);
+	}
+
+	// 面接日程テーブル削除処理
+	// 引数
+	// intTargetScheduleID：削除対象の面接日程テーブルID
+	// 戻り値
+	// int：処理成功した件数
+	public int deleteScheduleData(int intTargetScheduleID) throws SQLException {
+		return da.deleteScheduleData(intTargetScheduleID);
+	}
 }

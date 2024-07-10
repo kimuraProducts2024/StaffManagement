@@ -20,7 +20,9 @@ import application.MessageBoxController.PropType;
 import common.CommonFunc;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -30,6 +32,8 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 public class ScheduleMngController implements Initializable {
 
@@ -403,6 +407,8 @@ public class ScheduleMngController implements Initializable {
 	private Button btnUpdate;
 	@FXML
 	private Button btnDelete;
+	@FXML
+	private AnchorPane anchorPane;
 
 	private static DataManageService dms;
 	private static CommonFunc comFunc;
@@ -432,27 +438,17 @@ public class ScheduleMngController implements Initializable {
 			dms = DataManageService.createInstance();
 			comFunc = CommonFunc.createInstance();
 
-			// 各カレンダー、各スケジュール初期化
-			initElements();
-
 			// 今日の日付を設定
 			displayDate = LocalDate.now();
 
-			// 現在年月ラベル設定
-			lblNowYear.setText(String.valueOf(displayDate.getYear()));
-			lblNowMonth.setText(String.valueOf(displayDate.getMonthValue()));
-
-			// ↓ボタン非活性化
-			btnYearMonthBefore.setDisable(true);
-
-			// カレンダーの日付を設定
-			setCalendarDays(displayDate);
-
-			// カレンダーの予定を設定
-			setCalendarSchedule(displayDate);
+			// 画面初期化処理
+			initDisplay();
 
 			// 担当者コンボボックス設定
 			setIntevierwerCombo();
+
+			// ↓ボタン非活性化
+			btnYearMonthBefore.setDisable(true);
 
 			// 登録ボタン非活性化
 			// 詳細画面へ、更新、削除ボタン非活性化
@@ -468,26 +464,16 @@ public class ScheduleMngController implements Initializable {
 
 	// ↓ボタンクリックイベント
 	// 引数
-	// MouseEvent： event
+	// ActionEvent： event
 	// 戻り値
 	// なし
 	@FXML
 	private void btnYearMonthBefore_Click(ActionEvent event) throws SQLException {
 
-		// 各カレンダー、各スケジュール初期化
-		initElements();
-
 		displayDate = displayDate.minusMonths(1L);
 
-		// 現在年月ラベル設定
-		lblNowYear.setText(String.valueOf(displayDate.getYear()));
-		lblNowMonth.setText(String.valueOf(displayDate.getMonthValue()));
-
-		// カレンダーの日付設定
-		setCalendarDays(displayDate);
-
-		// カレンダーの予定を設定
-		setCalendarSchedule(displayDate);
+		// 画面初期化処理
+		initDisplay();
 
 		// ↓ボタン非活性化
 		btnYearMonthBefore.setDisable(true);
@@ -505,26 +491,16 @@ public class ScheduleMngController implements Initializable {
 
 	// ↑ボタンクリックイベント
 	// 引数
-	// MouseEvent： event
+	// ActionEvent： event
 	// 戻り値
 	// なし
 	@FXML
 	private void btnYearMonthNext_Click(ActionEvent event) throws SQLException {
 
-		// 各カレンダー、各スケジュール初期化
-		initElements();
-
 		displayDate = displayDate.plusMonths(1L);
 
-		// 現在年月ラベル設定
-		lblNowYear.setText(String.valueOf(displayDate.getYear()));
-		lblNowMonth.setText(String.valueOf(displayDate.getMonthValue()));
-
-		// カレンダーの日付設定
-		setCalendarDays(displayDate);
-
-		// カレンダーの予定を設定
-		setCalendarSchedule(displayDate);
+		// 画面初期化処理
+		initDisplay();
 
 		// ↓ボタン活性化
 		btnYearMonthBefore.setDisable(false);
@@ -542,7 +518,7 @@ public class ScheduleMngController implements Initializable {
 
 	// スケジュールリンククリックイベント
 	// 引数
-	// MouseEvent： event
+	// ActionEvent： event
 	// 戻り値
 	// なし
 	@FXML
@@ -620,7 +596,7 @@ public class ScheduleMngController implements Initializable {
 
 	// 登録ボタンクリックイベント
 	// 引数
-	// MouseEvent： event
+	// ActionEvent： event
 	// 戻り値
 	// なし
 	@FXML
@@ -650,29 +626,110 @@ public class ScheduleMngController implements Initializable {
 									+ String.valueOf(Integer.parseInt(txtStartHour.getText()) + 1) +
 									":" + txtStartMinute.getText() + ":00";
 
-		    	// 入力された値で、データ登録処理を実施
-		    	int resultCount = dms.insertData(strStartDate, strEndDate,
-		    							cmbInterviewer1.getSelectionModel().getSelectedItem().getStaffId(),
-		    			 				cmbInterviewer2.getSelectionModel().getSelectedItem().getStaffId(),
-		    			 				cmbInterviewer3.getSelectionModel().getSelectedItem().getStaffId(),
-		    			 				txtApplicant.getText(), txtRemarks.getText());
+	    	// 入力された値で、データ登録処理を実施
+	    	int resultCount = dms.insertScheduleApplicantData(strStartDate, strEndDate,
+	    							cmbInterviewer1.getSelectionModel().getSelectedItem().getStaffId(),
+	    			 				cmbInterviewer2.getSelectionModel().getSelectedItem().getStaffId(),
+	    			 				cmbInterviewer3.getSelectionModel().getSelectedItem().getStaffId(),
+	    			 				txtApplicant.getText(), txtRemarks.getText());
 		    if(resultCount > 0) {
 		    	comFunc.showMessage("MessageBox", PropType.Info, "登録が完了しました。");
-		    	// 各カレンダー、各スケジュール初期化
-				initElements();
-				// 現在年月ラベル設定
-				lblNowYear.setText(String.valueOf(displayDate.getYear()));
-				lblNowMonth.setText(String.valueOf(displayDate.getMonthValue()));
-				// カレンダーの日付を設定
-				setCalendarDays(displayDate);
-		    	// カレンダーの予定を設定
-				setCalendarSchedule(displayDate);
-				// 入力エリアの初期化
-		    	initInputArea();
+		    	// 画面初期化
+		    	initDisplay();
 		    } else {
 		    	comFunc.showMessage("MessageBox", PropType.Error, "登録処理が失敗しました。");
 		    }
 	    }
+	}
+
+	// 更新ボタンクリックイベント
+	// 引数
+	// ActionEvent： event
+	// 戻り値
+	// なし
+	@FXML
+	private void btnUpdate_Click(ActionEvent event) throws IOException, SQLException {
+
+		// 入力チェック
+		// 入力値が不正の場合
+		if(isInputErrorCheck()) {
+			return;
+		}
+
+		// 確認メッセージ表示
+	    Alert alrt = new Alert(AlertType.CONFIRMATION);
+	    alrt.setTitle("更新");
+	    alrt.setHeaderText(null);
+	    alrt.setContentText("更新してよろしいですか？");
+	    Optional<ButtonType> result = alrt.showAndWait();
+	    //OKボタンがクリックされたら
+	    if (result.get() == ButtonType.OK) {
+
+	    	// 面接日、開始時間から開始日時を作成
+	    	String strStartDate = lblNowYear.getText() + "/" + txtMeetingMonth.getText() +
+	    							"/" + txtMeetingDay.getText() + " " + txtStartHour.getText() +
+	    							":" + txtStartMinute.getText() + ":00";
+	    	String strEndDate = lblNowYear.getText() + "/" + txtMeetingMonth.getText() +
+									"/" + txtMeetingDay.getText() + " "
+									+ String.valueOf(Integer.parseInt(txtStartHour.getText()) + 1) +
+									":" + txtStartMinute.getText() + ":00";
+
+	    	// 入力された値で、データ更新処理を実施
+	    	int resultCount = dms.updateScheduleApplicantData(intTargetScheduleID, strStartDate, strEndDate,
+	    							cmbInterviewer1.getSelectionModel().getSelectedItem().getStaffId(),
+	    			 				cmbInterviewer2.getSelectionModel().getSelectedItem().getStaffId(),
+	    			 				cmbInterviewer3.getSelectionModel().getSelectedItem().getStaffId(),
+	    			 				txtApplicant.getText(), txtRemarks.getText());
+		    if(resultCount > 0) {
+		    	comFunc.showMessage("MessageBox", PropType.Info, "更新が完了しました。");
+		    	// 画面初期化
+		    	initDisplay();
+		    } else {
+		    	comFunc.showMessage("MessageBox", PropType.Error, "更新処理が失敗しました。");
+		    }
+	    }
+	}
+
+	// 削除ボタンクリックイベント
+	// 引数
+	// ActionEvent： event
+	// 戻り値
+	// なし
+	@FXML
+	private void btnDelete_Click(ActionEvent event) throws IOException, SQLException {
+
+		// 確認メッセージ表示
+	    Alert alrt = new Alert(AlertType.CONFIRMATION);
+	    alrt.setTitle("削除");
+	    alrt.setHeaderText(null);
+	    alrt.setContentText("削除してよろしいですか？");
+	    Optional<ButtonType> result = alrt.showAndWait();
+	    //OKボタンがクリックされたら
+	    if (result.get() == ButtonType.OK) {
+
+	    	// 入力された値で、データ削除処理を実施
+	    	int resultCount = dms.deleteScheduleData(intTargetScheduleID);
+		    if(resultCount > 0) {
+		    	comFunc.showMessage("MessageBox", PropType.Info, "削除が完了しました。");
+		    	// 画面初期化
+		    	initDisplay();
+		    } else {
+		    	comFunc.showMessage("MessageBox", PropType.Error, "削除処理が失敗しました。");
+		    }
+	    }
+	}
+
+	// 詳細画面へボタンクリックイベント
+	// 引数
+	// ActionEvent： event
+	// 戻り値
+	// なし
+	@FXML
+	private void btnDetail_Click(ActionEvent event) throws IOException {
+		ScheduleDetailController.intTargetScheduleID = intTargetScheduleID;
+		BorderPane bp = (BorderPane)anchorPane.parentProperty().get();
+		Parent root = FXMLLoader.load(getClass().getResource("ScheduleDetail.fxml"));
+		bp.setCenter(root);
 	}
 
 	// カレンダー初期化
@@ -715,6 +772,42 @@ public class ScheduleMngController implements Initializable {
 		txtApplicant.setText(""); txtRemarks.setText(""); mapLinkIDScheduleID.clear(); intTargetScheduleID = 0;
 	}
 
+	// 入力エリア初期化処理
+	// 引数
+	// なし
+	// 戻り値
+	// なし
+	private void initInputArea() {
+		txtMeetingMonth.setText("");
+		txtMeetingDay.setText("");
+		txtStartHour.setText("");
+		txtStartMinute.setText("");
+		cmbInterviewer1.getSelectionModel().select(0);
+		cmbInterviewer2.getSelectionModel().select(0);
+		cmbInterviewer3.getSelectionModel().select(0);
+		txtApplicant.setText("");
+		txtRemarks.setText("");
+	}
+
+	// 画面初期化処理
+	// 引数
+	// なし
+	// 戻り値
+	// なし
+	private void initDisplay() throws SQLException {
+    	// 各カレンダー、各スケジュール初期化
+		initElements();
+		// 現在年月ラベル設定
+		lblNowYear.setText(String.valueOf(displayDate.getYear()));
+		lblNowMonth.setText(String.valueOf(displayDate.getMonthValue()));
+		// カレンダーの日付を設定
+		setCalendarDays(displayDate);
+    	// カレンダーの予定を設定
+		setCalendarSchedule(displayDate);
+		// 入力エリアの初期化
+    	initInputArea();
+	}
+
 	// 担当者コンボボックス設定
 	// 引数
 	// なし
@@ -747,25 +840,7 @@ public class ScheduleMngController implements Initializable {
 		cmbInterviewer3.getSelectionModel().select(0);
 	}
 
-	// 入力エリア初期化処理
-	// 引数
-	// なし
-	// 戻り値
-	// なし
-	private void initInputArea() {
-		txtMeetingMonth.setText("");
-		txtMeetingDay.setText("");
-		txtStartHour.setText("");
-		txtStartMinute.setText("");
-		cmbInterviewer1.getSelectionModel().select(0);
-		cmbInterviewer2.getSelectionModel().select(0);
-		cmbInterviewer3.getSelectionModel().select(0);
-		txtApplicant.setText("");
-		txtRemarks.setText("");
-	}
-
-
-	// カレンダー日付設定処理
+	// 入力値チェック処理
 	// 引数
 	// LocalDate nowDate
 	// 戻り値
