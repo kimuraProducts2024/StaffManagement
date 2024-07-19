@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="373.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ApplicantDetailListController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="332.0" layoutX="27.0" layoutY="20.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="659.0" />
+      <Label alignment="CENTER" layoutX="55.0" layoutY="42.0" prefHeight="34.0" prefWidth="141.0" style="-fx-background-color: #263F73;" text="応募者リスト" textFill="WHITE">
+         <font>
+            <Font name="Yu Mincho Regular" size="12.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/Applicant.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <TableView fx:id="tableApplicantList" focusTraversable="false" layoutX="55.0" layoutY="100.0" prefHeight="172.0" prefWidth="603.0">
+         <columns>
+            <TableColumn fx:id="colApplicantId" editable="false" prefWidth="89.0" sortable="false" text="応募者ID" />
+            <TableColumn fx:id="colApplicantName" editable="false" prefWidth="154.0" sortable="false" text="応募者名" />
+            <TableColumn fx:id="colGender" editable="false" prefWidth="79.0" sortable="false" text="性別" />
+            <TableColumn fx:id="colAge" editable="false" prefWidth="67.0" sortable="false" text="年齢" />
+            <TableColumn fx:id="colConducted" editable="false" prefWidth="122.0" sortable="false" text="面接実施" />
+            <TableColumn fx:id="colResult" editable="false" prefWidth="89.0" sortable="false" text="合否" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnListSelect" layoutX="325.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnListSelect_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="選択" textFill="WHITE" />
+      <Button fx:id="btnListCancel" layoutX="497.0" layoutY="295.0" mnemonicParsing="false" onAction="#btnListCancel_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="キャンセル" textFill="WHITE" />
+   </children>
+</AnchorPane>

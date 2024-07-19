@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RetireDocsController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="610.0" layoutX="20.0" layoutY="14.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="721.0" />
+      <Label alignment="CENTER" layoutX="47.0" layoutY="28.0" prefHeight="34.0" prefWidth="255.0" style="-fx-background-color: #263F73;" text="各種帳票出力" textFill="WHITE">
+         <font>
+            <Font name="Yu Mincho Regular" size="21.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="104.0" layoutY="71.0" prefHeight="34.0" prefWidth="141.0" style="-fx-background-color: #263F73;" text="退職時関連" textFill="WHITE">
+         <font>
+            <Font name="Yu Mincho Regular" size="12.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/VariousLedger.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <Line endX="310.0" endY="2.0" layoutX="351.0" layoutY="291.0" opacity="0.28" startX="-252.0" startY="2.0" />
+      <ImageView fx:id="image1" fitHeight="80.0" fitWidth="79.0" layoutX="511.0" layoutY="310.0" onMouseClicked="#image1MouseClicked" onMouseEntered="#image1MouseEntered" onMouseExited="#image1MouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/WordOutput.png" />
+         </image>
+      </ImageView>
+      <Line endX="142.0" endY="2.0" layoutX="357.0" layoutY="374.0" opacity="0.28" startX="-252.0" startY="2.0" />
+      <Label layoutX="120.0" layoutY="310.0" prefHeight="57.0" prefWidth="312.0" text="退職証明書">
+         <font>
+            <Font name="Yu Mincho Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="120.0" layoutY="223.0" prefHeight="57.0" prefWidth="312.0" text="ダウンロード資料">
+         <font>
+            <Font name="Yu Mincho Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="480.0" layoutY="223.0" prefHeight="57.0" prefWidth="218.0" text="ダウンロードボタン">
+         <font>
+            <Font name="Yu Mincho Regular" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

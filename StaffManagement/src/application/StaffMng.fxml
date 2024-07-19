@@ -1,5 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<StackPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" />
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StaffMngController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="610.0" layoutX="15.0" layoutY="14.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="721.0" />
+      <Label alignment="CENTER" layoutX="46.0" layoutY="28.0" prefHeight="34.0" prefWidth="255.0" style="-fx-background-color: #263F73;" text="従業員管理" textFill="WHITE">
+         <font>
+            <Font name="Yu Mincho Regular" size="21.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="103.0" layoutY="71.0" prefHeight="34.0" prefWidth="141.0" style="-fx-background-color: #263F73;" text="従業員一覧" textFill="WHITE">
+         <font>
+            <Font name="Yu Mincho Regular" size="12.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/StaffMng.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <HBox layoutX="46.0" layoutY="128.0" prefHeight="36.0" prefWidth="179.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="99.0" style="-fx-background-color: #263F73;" text="従業員ID" textFill="WHITE">
+               <font>
+                  <Font name="Yu Mincho Regular" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <TextField fx:id="txtSearchStaffId" prefHeight="36.0" prefWidth="150.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="225.0" layoutY="128.0" prefHeight="36.0" prefWidth="302.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="74.0" style="-fx-background-color: #263F73;" text="従業員氏名" textFill="WHITE">
+               <font>
+                  <Font name="Yu Mincho Regular" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <TextField fx:id="txtSearchStaffName" prefHeight="36.0" prefWidth="226.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="46.0" layoutY="164.0" prefHeight="36.0" prefWidth="236.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="64.0" style="-fx-background-color: #263F73;" text="役職" textFill="WHITE">
+               <font>
+                  <Font name="Yu Mincho Regular" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <ComboBox fx:id="cmbSearchPost" prefHeight="36.0" prefWidth="173.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="282.0" layoutY="164.0" prefHeight="36.0" prefWidth="243.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="70.0" style="-fx-background-color: #263F73;" text="部署" textFill="WHITE">
+               <font>
+                  <Font name="Yu Mincho Regular" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <ComboBox fx:id="cmbSearchDept" prefHeight="36.0" prefWidth="174.0" />
+         </children>
+      </HBox>
+      <Button fx:id="btnSearch" layoutX="541.0" layoutY="167.0" mnemonicParsing="false" onAction="#btnSearch_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="検索" textFill="WHITE" />
+      <TableView fx:id="table" layoutX="42.0" layoutY="231.0" onMouseClicked="#table_Clicked" prefHeight="298.0" prefWidth="667.0">
+         <columns>
+            <TableColumn fx:id="colStaffId" prefWidth="75.0" text="従業員ID" />
+            <TableColumn fx:id="colStaffName" prefWidth="180.0" text="従業員氏名" />
+            <TableColumn fx:id="colGender" prefWidth="68.0" text="性別" />
+            <TableColumn fx:id="colAge" prefWidth="56.0" text="年齢" />
+            <TableColumn fx:id="colTelephone" prefWidth="104.0" text="電話番号" />
+            <TableColumn fx:id="colDepartment" prefWidth="100.0" text="部署" />
+            <TableColumn fx:id="colPost" prefWidth="100.0" text="役職" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnDetail" layoutX="542.0" layoutY="566.0" mnemonicParsing="false" onAction="#btnDetail_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="詳細画面へ" textFill="WHITE" />
+      <Line endX="310.0" endY="2.0" layoutX="336.0" layoutY="215.0" opacity="0.28" startX="-252.0" startY="2.0" />
+      <Button fx:id="btnClear" layoutX="541.0" layoutY="128.0" mnemonicParsing="false" onAction="#btnClear_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="値クリア" textFill="WHITE" />
+      <Line endX="310.0" endY="2.0" layoutX="336.0" layoutY="544.0" opacity="0.28" startX="-252.0" startY="2.0" />
+      <Button fx:id="btnRegist" layoutX="379.0" layoutY="566.0" mnemonicParsing="false" onAction="#btnRegist_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="新規登録" textFill="WHITE" />
+   </children>
+</AnchorPane>

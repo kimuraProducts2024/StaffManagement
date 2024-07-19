@@ -58,7 +58,7 @@
             <Button layoutX="13.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#applicantMngBtn_Click" prefHeight="36.0" prefWidth="175.0" styleClass="navigationButton" text="応募者管理" textFill="#263f73" />
             <Button layoutX="13.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#joiningProcedureBtn_Click" prefHeight="36.0" prefWidth="175.0" styleClass="navigationButton" text="入社手続き管理" textFill="#263f73" />
             <Button layoutX="13.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#staffMngBtn_Click" prefHeight="36.0" prefWidth="175.0" styleClass="navigationButton" text="従業員管理" textFill="#263f73" />
-            <Button layoutX="13.0" layoutY="450.0" mnemonicParsing="false" onMouseClicked="#variousLedgerBtn_Click" prefHeight="36.0" prefWidth="175.0" styleClass="navigationButton" text="各種帳票出力" textFill="#263f73" />
+            <Button layoutX="13.0" layoutY="450.0" mnemonicParsing="false" onMouseClicked="#InterviewDocsBtn_Click" prefHeight="36.0" prefWidth="175.0" styleClass="navigationButton" text="各種帳票出力" textFill="#263f73" />
             <Line endX="59.0" layoutX="105.0" layoutY="200.0" startX="-69.0" stroke="WHITE">
                <effect>
                   <DropShadow />
@@ -80,7 +80,7 @@
    <center>
       <AnchorPane fx:id="ap" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="247.0" layoutY="67.0" prefHeight="34.0" prefWidth="255.0" style="-fx-background-color: #263F73;" text="メインメニュー" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="247.0" layoutY="69.0" prefHeight="34.0" prefWidth="255.0" style="-fx-background-color: #263F73;" text="メインメニュー" textFill="WHITE">
                <font>
                   <Font name="Yu Mincho Regular" size="21.0" />
                </font>
@@ -88,7 +88,7 @@
                   <InnerShadow />
                </effect>
             </Label>
-            <Pane layoutX="84.0" layoutY="165.0" prefHeight="380.0" prefWidth="581.0" style="-fx-background-color: #263F73;">
+            <Pane layoutX="84.0" layoutY="158.0" prefHeight="380.0" prefWidth="581.0" style="-fx-background-color: #263F73;">
                <children>
                   <VBox layoutX="25.0" layoutY="40.0" prefHeight="300.0" prefWidth="532.0">
                      <children>
@@ -131,8 +131,8 @@
                                     <DropShadow />
                                  </effect>
                               </Line>
-                              <Button layoutX="187.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="応募者一覧" textFill="#263f73" />
-                              <Button layoutX="284.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="応募者詳細" textFill="#263f73" />
+                              <Button layoutX="187.0" layoutY="13.0" mnemonicParsing="false" onAction="#applicantBtn_Click" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="応募者一覧" textFill="#263f73" />
+                              <Button layoutX="284.0" layoutY="13.0" mnemonicParsing="false" onAction="#applicantDetailBtn_Click" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="応募者詳細" textFill="#263f73" />
                               <ImageView fitHeight="28.0" fitWidth="34.0" layoutX="22.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../imgs/Applicant.png" />
@@ -155,8 +155,8 @@
                                     <DropShadow />
                                  </effect>
                               </Line>
-                              <Button layoutX="187.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="必要書類管理" textFill="#263f73" />
-                              <Button layoutX="284.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="手続完了管理" textFill="#263f73" />
+                              <Button layoutX="187.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#joiningProcedureBtn_Click" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="必要書類管理" textFill="#263f73" />
+                              <Button layoutX="284.0" layoutY="13.0" mnemonicParsing="false" onAction="#joiningProcCompleteBtn_Click" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="手続完了管理" textFill="#263f73" />
                               <ImageView fitHeight="28.0" fitWidth="34.0" layoutX="24.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../imgs/JoiningProcedure.png" />
@@ -179,8 +179,8 @@
                                     <DropShadow />
                                  </effect>
                               </Line>
-                              <Button layoutX="187.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="従業員一覧" textFill="#263f73" />
-                              <Button layoutX="284.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="従業員詳細" textFill="#263f73" />
+                              <Button layoutX="187.0" layoutY="13.0" mnemonicParsing="false" onAction="#staffListBtn_Click" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="従業員一覧" textFill="#263f73" />
+                              <Button layoutX="284.0" layoutY="13.0" mnemonicParsing="false" onAction="#staffDetailBtn_Click" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="従業員詳細" textFill="#263f73" />
                               <ImageView fitHeight="28.0" fitWidth="34.0" layoutX="23.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../imgs/StaffMng.png" />
@@ -203,14 +203,14 @@
                                     <DropShadow />
                                  </effect>
                               </Line>
-                              <Button layoutX="187.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="面接関連" textFill="#263f73" />
-                              <Button layoutX="284.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="入社時関連" textFill="#263f73" />
+                              <Button layoutX="187.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#InterviewDocsBtn_Click" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="面接関連" textFill="#263f73" />
+                              <Button layoutX="284.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#JoiningDocsBtn_Click" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="入社時関連" textFill="#263f73" />
                               <ImageView fitHeight="33.0" fitWidth="26.0" layoutX="27.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../imgs/VariousLedger.png" />
                                  </image>
                               </ImageView>
-                              <Button layoutX="380.0" layoutY="13.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="退職時関連" textFill="#263f73" />
+                              <Button layoutX="380.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#RetireDocsBtn_Click" prefHeight="26.0" prefWidth="89.0" styleClass="navigationButton" text="退職時関連" textFill="#263f73" />
                            </children>
                         </Pane>
                      </children>

@@ -66,7 +66,7 @@ public class DashBoardController implements Initializable {
 
 	// メインメニューボタンクリック
 	// 引数
-	// event：ActionEvent
+	// event：MouseEvent
 	// 戻り値
 	// なし
 	@FXML
@@ -76,7 +76,7 @@ public class DashBoardController implements Initializable {
 
 	// スケジュール管理ボタンクリック
 	// 引数
-	// event：ActionEvent
+	// event：MouseEvent
 	// 戻り値
 	// なし
 	@FXML
@@ -86,17 +86,17 @@ public class DashBoardController implements Initializable {
 
 	// 応募者管理ボタンクリック
 	// 引数
-	// event：ActionEvent
+	// event：MouseEvent
 	// 戻り値
 	// なし
 	@FXML
 	public void applicantMngBtn_Click(MouseEvent event) throws IOException {
-		loadPage("ApplicationMng");
+		loadPage("ApplicantMng");
 	}
 
 	// 入社手続き管理ボタンクリック
 	// 引数
-	// event：ActionEvent
+	// event：MouseEvent
 	// 戻り値
 	// なし
 	@FXML
@@ -106,7 +106,7 @@ public class DashBoardController implements Initializable {
 
 	// 従業員管理ボタンクリック
 	// 引数
-	// event：ActionEvent
+	// event：MouseEvent
 	// 戻り値
 	// なし
 	@FXML
@@ -116,12 +116,12 @@ public class DashBoardController implements Initializable {
 
 	// 各種帳票出力ボタンクリック
 	// 引数
-	// event：ActionEvent
+	// event：MouseEvent
 	// 戻り値
 	// なし
 	@FXML
-	public void variousLedgerBtn_Click(MouseEvent event) throws IOException {
-		loadPage("VariousLedger");
+	public void InterviewDocsBtn_Click(MouseEvent event) throws IOException {
+		loadPage("InterviewDocs");
 	}
 
 	// 面接日程管理ボタンクリック
@@ -141,14 +141,83 @@ public class DashBoardController implements Initializable {
 	// なし
 	@FXML
 	public void scheduleDetailBtn_Click(ActionEvent event) throws IOException {
+		ScheduleDetailController.intTargetScheduleID = 0;
 		loadPage("ScheduleDetail");
 	}
 
+	// 応募者一覧ボタンクリック
+	// 引数
+	// event：ActionEvent
+	// 戻り値
+	// なし
+	@FXML
+	public void applicantBtn_Click(ActionEvent event) throws IOException {
+		loadPage("ApplicantMng");
+	}
+
+	// 応募者詳細ボタンクリック
+	// 引数
+	// event：ActionEvent
+	// 戻り値
+	// なし
+	@FXML
+	public void applicantDetailBtn_Click(ActionEvent event) throws IOException {
+		ScheduleDetailController.intTargetScheduleID = 0;
+		loadPage("ApplicantDetail");
+	}
+
+	// 手続完了管理ボタンクリック
+	// 引数
+	// event：ActionEvent
+	// 戻り値
+	// なし
+	@FXML
+	public void joiningProcCompleteBtn_Click(ActionEvent event) throws IOException {
+		loadPage("JoiningProcComplete");
+	}
+
+	// 従業員管理ボタンクリック
+	// 引数
+	// event：ActionEvent
+	// 戻り値
+	// なし
+	@FXML
+	public void staffListBtn_Click(ActionEvent event) throws IOException {
+		loadPage("StaffMng");
+	}
+
+	// 従業員詳細ボタンクリック
+	// 引数
+	// event：ActionEvent
+	// 戻り値
+	// なし
+	@FXML
+	public void staffDetailBtn_Click(ActionEvent event) throws IOException {
+		loadPage("StaffDetail");
+	}
 
 
+	// 入社時関連ボタンクリック
+	// 引数
+	// event：MouseEvent
+	// 戻り値
+	// なし
+	@FXML
+	public void JoiningDocsBtn_Click(MouseEvent event) throws IOException {
+		loadPage("JoiningDocs");
+	}
 
+	// 退職時関連ボタンクリック
+	// 引数
+	// event：MouseEvent
+	// 戻り値
+	// なし
+	@FXML
+	public void RetireDocsBtn_Click(MouseEvent event) throws IOException {
+		loadPage("RetireDocs");
+	}
 
-
+	//RetireDocsBtn_Click
 
 	// 画面表示設定処理
 	// 引数

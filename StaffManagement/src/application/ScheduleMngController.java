@@ -11,11 +11,11 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 import Model.Staff;
 import Service.DataManageService;
+import application.MessageBoxController.MessageResponse;
 import application.MessageBoxController.PropType;
 import common.CommonFunc;
 import javafx.event.ActionEvent;
@@ -23,10 +23,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -37,346 +34,64 @@ import javafx.scene.layout.BorderPane;
 
 public class ScheduleMngController implements Initializable {
 
-	@FXML
-	private Label lblNowYear;
-	@FXML
-	private Label lblNowMonth;
-	@FXML
-	private Label lblSun1;
-	@FXML
-	private Label lblSun2;
-	@FXML
-	private Label lblSun3;
-	@FXML
-	private Label lblSun4;
-	@FXML
-	private Label lblSun5;
-	@FXML
-	private Label lblSun6;
-	@FXML
-	private Label lblMon1;
-	@FXML
-	private Label lblMon2;
-	@FXML
-	private Label lblMon3;
-	@FXML
-	private Label lblMon4;
-	@FXML
-	private Label lblMon5;
-	@FXML
-	private Label lblMon6;
-	@FXML
-	private Label lblTue1;
-	@FXML
-	private Label lblTue2;
-	@FXML
-	private Label lblTue3;
-	@FXML
-	private Label lblTue4;
-	@FXML
-	private Label lblTue5;
-	@FXML
-	private Label lblTue6;
-	@FXML
-	private Label lblWed1;
-	@FXML
-	private Label lblWed2;
-	@FXML
-	private Label lblWed3;
-	@FXML
-	private Label lblWed4;
-	@FXML
-	private Label lblWed5;
-	@FXML
-	private Label lblWed6;
-	@FXML
-	private Label lblThu1;
-	@FXML
-	private Label lblThu2;
-	@FXML
-	private Label lblThu3;
-	@FXML
-	private Label lblThu4;
-	@FXML
-	private Label lblThu5;
-	@FXML
-	private Label lblThu6;
-	@FXML
-	private Label lblFri1;
-	@FXML
-	private Label lblFri2;
-	@FXML
-	private Label lblFri3;
-	@FXML
-	private Label lblFri4;
-	@FXML
-	private Label lblFri5;
-	@FXML
-	private Label lblFri6;
-	@FXML
-	private Label lblSat1;
-	@FXML
-	private Label lblSat2;
-	@FXML
-	private Label lblSat3;
-	@FXML
-	private Label lblSat4;
-	@FXML
-	private Label lblSat5;
-	@FXML
-	private Label lblSat6;
-	@FXML
-	private Hyperlink linkScheSun11;
-	@FXML
-	private Hyperlink linkScheSun12;
-	@FXML
-	private Hyperlink linkScheSun13;
-	@FXML
-	private Hyperlink linkScheSun21;
-	@FXML
-	private Hyperlink linkScheSun22;
-	@FXML
-	private Hyperlink linkScheSun23;
-	@FXML
-	private Hyperlink linkScheSun31;
-	@FXML
-	private Hyperlink linkScheSun32;
-	@FXML
-	private Hyperlink linkScheSun33;
-	@FXML
-	private Hyperlink linkScheSun41;
-	@FXML
-	private Hyperlink linkScheSun42;
-	@FXML
-	private Hyperlink linkScheSun43;
-	@FXML
-	private Hyperlink linkScheSun51;
-	@FXML
-	private Hyperlink linkScheSun52;
-	@FXML
-	private Hyperlink linkScheSun53;
-	@FXML
-	private Hyperlink linkScheSun61;
-	@FXML
-	private Hyperlink linkScheSun62;
-	@FXML
-	private Hyperlink linkScheSun63;
-	@FXML
-	private Hyperlink linkScheMon11;
-	@FXML
-	private Hyperlink linkScheMon12;
-	@FXML
-	private Hyperlink linkScheMon13;
-	@FXML
-	private Hyperlink linkScheMon21;
-	@FXML
-	private Hyperlink linkScheMon22;
-	@FXML
-	private Hyperlink linkScheMon23;
-	@FXML
-	private Hyperlink linkScheMon31;
-	@FXML
-	private Hyperlink linkScheMon32;
-	@FXML
-	private Hyperlink linkScheMon33;
-	@FXML
-	private Hyperlink linkScheMon41;
-	@FXML
-	private Hyperlink linkScheMon42;
-	@FXML
-	private Hyperlink linkScheMon43;
-	@FXML
-	private Hyperlink linkScheMon51;
-	@FXML
-	private Hyperlink linkScheMon52;
-	@FXML
-	private Hyperlink linkScheMon53;
-	@FXML
-	private Hyperlink linkScheMon61;
-	@FXML
-	private Hyperlink linkScheMon62;
-	@FXML
-	private Hyperlink linkScheMon63;
-	@FXML
-	private Hyperlink linkScheTue11;
-	@FXML
-	private Hyperlink linkScheTue12;
-	@FXML
-	private Hyperlink linkScheTue13;
-	@FXML
-	private Hyperlink linkScheTue21;
-	@FXML
-	private Hyperlink linkScheTue22;
-	@FXML
-	private Hyperlink linkScheTue23;
-	@FXML
-	private Hyperlink linkScheTue31;
-	@FXML
-	private Hyperlink linkScheTue32;
-	@FXML
-	private Hyperlink linkScheTue33;
-	@FXML
-	private Hyperlink linkScheTue41;
-	@FXML
-	private Hyperlink linkScheTue42;
-	@FXML
-	private Hyperlink linkScheTue43;
-	@FXML
-	private Hyperlink linkScheTue51;
-	@FXML
-	private Hyperlink linkScheTue52;
-	@FXML
-	private Hyperlink linkScheTue53;
-	@FXML
-	private Hyperlink linkScheTue61;
-	@FXML
-	private Hyperlink linkScheTue62;
-	@FXML
-	private Hyperlink linkScheTue63;
-	@FXML
-	private Hyperlink linkScheWed11;
-	@FXML
-	private Hyperlink linkScheWed12;
-	@FXML
-	private Hyperlink linkScheWed13;
-	@FXML
-	private Hyperlink linkScheWed21;
-	@FXML
-	private Hyperlink linkScheWed22;
-	@FXML
-	private Hyperlink linkScheWed23;
-	@FXML
-	private Hyperlink linkScheWed31;
-	@FXML
-	private Hyperlink linkScheWed32;
-	@FXML
-	private Hyperlink linkScheWed33;
-	@FXML
-	private Hyperlink linkScheWed41;
-	@FXML
-	private Hyperlink linkScheWed42;
-	@FXML
-	private Hyperlink linkScheWed43;
-	@FXML
-	private Hyperlink linkScheWed51;
-	@FXML
-	private Hyperlink linkScheWed52;
-	@FXML
-	private Hyperlink linkScheWed53;
-	@FXML
-	private Hyperlink linkScheWed61;
-	@FXML
-	private Hyperlink linkScheWed62;
-	@FXML
-	private Hyperlink linkScheWed63;
-	@FXML
-	private Hyperlink linkScheThu11;
-	@FXML
-	private Hyperlink linkScheThu12;
-	@FXML
-	private Hyperlink linkScheThu13;
-	@FXML
-	private Hyperlink linkScheThu21;
-	@FXML
-	private Hyperlink linkScheThu22;
-	@FXML
-	private Hyperlink linkScheThu23;
-	@FXML
-	private Hyperlink linkScheThu31;
-	@FXML
-	private Hyperlink linkScheThu32;
-	@FXML
-	private Hyperlink linkScheThu33;
-	@FXML
-	private Hyperlink linkScheThu41;
-	@FXML
-	private Hyperlink linkScheThu42;
-	@FXML
-	private Hyperlink linkScheThu43;
-	@FXML
-	private Hyperlink linkScheThu51;
-	@FXML
-	private Hyperlink linkScheThu52;
-	@FXML
-	private Hyperlink linkScheThu53;
-	@FXML
-	private Hyperlink linkScheThu61;
-	@FXML
-	private Hyperlink linkScheThu62;
-	@FXML
-	private Hyperlink linkScheThu63;
-	@FXML
-	private Hyperlink linkScheFri11;
-	@FXML
-	private Hyperlink linkScheFri12;
-	@FXML
-	private Hyperlink linkScheFri13;
-	@FXML
-	private Hyperlink linkScheFri21;
-	@FXML
-	private Hyperlink linkScheFri22;
-	@FXML
-	private Hyperlink linkScheFri23;
-	@FXML
-	private Hyperlink linkScheFri31;
-	@FXML
-	private Hyperlink linkScheFri32;
-	@FXML
-	private Hyperlink linkScheFri33;
-	@FXML
-	private Hyperlink linkScheFri41;
-	@FXML
-	private Hyperlink linkScheFri42;
-	@FXML
-	private Hyperlink linkScheFri43;
-	@FXML
-	private Hyperlink linkScheFri51;
-	@FXML
-	private Hyperlink linkScheFri52;
-	@FXML
-	private Hyperlink linkScheFri53;
-	@FXML
-	private Hyperlink linkScheFri61;
-	@FXML
-	private Hyperlink linkScheFri62;
-	@FXML
-	private Hyperlink linkScheFri63;
-	@FXML
-	private Hyperlink linkScheSat11;
-	@FXML
-	private Hyperlink linkScheSat12;
-	@FXML
-	private Hyperlink linkScheSat13;
-	@FXML
-	private Hyperlink linkScheSat21;
-	@FXML
-	private Hyperlink linkScheSat22;
-	@FXML
-	private Hyperlink linkScheSat23;
-	@FXML
-	private Hyperlink linkScheSat31;
-	@FXML
-	private Hyperlink linkScheSat32;
-	@FXML
-	private Hyperlink linkScheSat33;
-	@FXML
-	private Hyperlink linkScheSat41;
-	@FXML
-	private Hyperlink linkScheSat42;
-	@FXML
-	private Hyperlink linkScheSat43;
-	@FXML
-	private Hyperlink linkScheSat51;
-	@FXML
-	private Hyperlink linkScheSat52;
-	@FXML
-	private Hyperlink linkScheSat53;
-	@FXML
-	private Hyperlink linkScheSat61;
-	@FXML
-	private Hyperlink linkScheSat62;
-	@FXML
-	private Hyperlink linkScheSat63;
+	@FXML private Label lblNowYear; @FXML 	private Label lblNowMonth; @FXML private Label lblSun1;
+	@FXML private Label lblSun2; @FXML private Label lblSun3; @FXML private Label lblSun4;
+	@FXML private Label lblSun5; @FXML private Label lblSun6; @FXML private Label lblMon1;
+	@FXML private Label lblMon2; @FXML private Label lblMon3; @FXML private Label lblMon4;
+	@FXML private Label lblMon5; @FXML private Label lblMon6; @FXML private Label lblTue1;
+	@FXML private Label lblTue2; @FXML private Label lblTue3; @FXML private Label lblTue4;
+	@FXML private Label lblTue5; @FXML private Label lblTue6; @FXML private Label lblWed1;
+	@FXML private Label lblWed2; @FXML private Label lblWed3; @FXML private Label lblWed4;
+	@FXML private Label lblWed5; @FXML private Label lblWed6; @FXML private Label lblThu1;
+	@FXML private Label lblThu2; @FXML private Label lblThu3; @FXML private Label lblThu4;
+	@FXML private Label lblThu5; @FXML private Label lblThu6; @FXML private Label lblFri1;
+	@FXML private Label lblFri2; @FXML private Label lblFri3; @FXML private Label lblFri4;
+	@FXML private Label lblFri5; @FXML private Label lblFri6; @FXML private Label lblSat1;
+	@FXML private Label lblSat2; @FXML private Label lblSat3; @FXML private Label lblSat4;
+	@FXML private Label lblSat5; @FXML private Label lblSat6;
+	@FXML private Hyperlink linkScheSun11; @FXML private Hyperlink linkScheSun12; @FXML private Hyperlink linkScheSun13;
+	@FXML private Hyperlink linkScheSun21; @FXML private Hyperlink linkScheSun22; @FXML private Hyperlink linkScheSun23;
+	@FXML private Hyperlink linkScheSun31; @FXML private Hyperlink linkScheSun32; @FXML private Hyperlink linkScheSun33;
+	@FXML private Hyperlink linkScheSun41; @FXML private Hyperlink linkScheSun42; @FXML private Hyperlink linkScheSun43;
+	@FXML private Hyperlink linkScheSun51; @FXML private Hyperlink linkScheSun52; @FXML private Hyperlink linkScheSun53;
+	@FXML private Hyperlink linkScheSun61; @FXML private Hyperlink linkScheSun62; @FXML private Hyperlink linkScheSun63;
+	@FXML private Hyperlink linkScheMon11; @FXML private Hyperlink linkScheMon12; @FXML private Hyperlink linkScheMon13;
+	@FXML private Hyperlink linkScheMon21; @FXML private Hyperlink linkScheMon22; @FXML private Hyperlink linkScheMon23;
+	@FXML private Hyperlink linkScheMon31; @FXML private Hyperlink linkScheMon32; @FXML private Hyperlink linkScheMon33;
+	@FXML private Hyperlink linkScheMon41; @FXML private Hyperlink linkScheMon42; @FXML private Hyperlink linkScheMon43;
+	@FXML private Hyperlink linkScheMon51; @FXML private Hyperlink linkScheMon52; @FXML private Hyperlink linkScheMon53;
+	@FXML private Hyperlink linkScheMon61; @FXML private Hyperlink linkScheMon62; @FXML private Hyperlink linkScheMon63;
+	@FXML private Hyperlink linkScheTue11; @FXML private Hyperlink linkScheTue12; @FXML private Hyperlink linkScheTue13;
+	@FXML private Hyperlink linkScheTue21; @FXML private Hyperlink linkScheTue22; @FXML private Hyperlink linkScheTue23;
+	@FXML private Hyperlink linkScheTue31; @FXML private Hyperlink linkScheTue32; @FXML private Hyperlink linkScheTue33;
+	@FXML private Hyperlink linkScheTue41; @FXML private Hyperlink linkScheTue42; @FXML private Hyperlink linkScheTue43;
+	@FXML private Hyperlink linkScheTue51; @FXML private Hyperlink linkScheTue52; @FXML private Hyperlink linkScheTue53;
+	@FXML private Hyperlink linkScheTue61; @FXML private Hyperlink linkScheTue62; @FXML private Hyperlink linkScheTue63;
+	@FXML private Hyperlink linkScheWed11; @FXML private Hyperlink linkScheWed12; @FXML private Hyperlink linkScheWed13;
+	@FXML private Hyperlink linkScheWed21; @FXML private Hyperlink linkScheWed22; @FXML private Hyperlink linkScheWed23;
+	@FXML private Hyperlink linkScheWed31; @FXML private Hyperlink linkScheWed32; @FXML private Hyperlink linkScheWed33;
+	@FXML private Hyperlink linkScheWed41; @FXML private Hyperlink linkScheWed42; @FXML private Hyperlink linkScheWed43;
+	@FXML private Hyperlink linkScheWed51; @FXML private Hyperlink linkScheWed52; @FXML private Hyperlink linkScheWed53;
+	@FXML private Hyperlink linkScheWed61; @FXML private Hyperlink linkScheWed62; @FXML private Hyperlink linkScheWed63;
+	@FXML private Hyperlink linkScheThu11; @FXML private Hyperlink linkScheThu12; @FXML private Hyperlink linkScheThu13;
+	@FXML private Hyperlink linkScheThu21; @FXML private Hyperlink linkScheThu22; @FXML private Hyperlink linkScheThu23;
+	@FXML private Hyperlink linkScheThu31; @FXML private Hyperlink linkScheThu32; @FXML private Hyperlink linkScheThu33;
+	@FXML private Hyperlink linkScheThu41; @FXML private Hyperlink linkScheThu42; @FXML private Hyperlink linkScheThu43;
+	@FXML private Hyperlink linkScheThu51; @FXML private Hyperlink linkScheThu52; @FXML private Hyperlink linkScheThu53;
+	@FXML private Hyperlink linkScheThu61; @FXML private Hyperlink linkScheThu62; @FXML private Hyperlink linkScheThu63;
+	@FXML private Hyperlink linkScheFri11; @FXML private Hyperlink linkScheFri12; @FXML private Hyperlink linkScheFri13;
+	@FXML private Hyperlink linkScheFri21; @FXML private Hyperlink linkScheFri22; @FXML private Hyperlink linkScheFri23;
+	@FXML private Hyperlink linkScheFri31; @FXML private Hyperlink linkScheFri32; @FXML private Hyperlink linkScheFri33;
+	@FXML private Hyperlink linkScheFri41; @FXML private Hyperlink linkScheFri42; @FXML private Hyperlink linkScheFri43;
+	@FXML private Hyperlink linkScheFri51; @FXML private Hyperlink linkScheFri52; @FXML private Hyperlink linkScheFri53;
+	@FXML private Hyperlink linkScheFri61; @FXML private Hyperlink linkScheFri62; @FXML private Hyperlink linkScheFri63;
+	@FXML private Hyperlink linkScheSat11; @FXML private Hyperlink linkScheSat12; @FXML private Hyperlink linkScheSat13;
+	@FXML private Hyperlink linkScheSat21; @FXML private Hyperlink linkScheSat22; @FXML private Hyperlink linkScheSat23;
+	@FXML private Hyperlink linkScheSat31; @FXML private Hyperlink linkScheSat32; @FXML private Hyperlink linkScheSat33;
+	@FXML private Hyperlink linkScheSat41; @FXML private Hyperlink linkScheSat42; @FXML private Hyperlink linkScheSat43;
+	@FXML private Hyperlink linkScheSat51; @FXML private Hyperlink linkScheSat52; @FXML private Hyperlink linkScheSat53;
+	@FXML private Hyperlink linkScheSat61; @FXML private Hyperlink linkScheSat62; @FXML private Hyperlink linkScheSat63;
+
 	@FXML
 	private Button btnYearMonthBefore;
 	@FXML
@@ -609,13 +324,10 @@ public class ScheduleMngController implements Initializable {
 		}
 
 		// 確認メッセージ表示
-	    Alert alrt = new Alert(AlertType.CONFIRMATION);
-	    alrt.setTitle("登録");
-	    alrt.setHeaderText(null);
-	    alrt.setContentText("登録してよろしいですか？");
-	    Optional<ButtonType> result = alrt.showAndWait();
-	    //OKボタンがクリックされたら
-	    if (result.get() == ButtonType.OK) {
+		comFunc.showMessage("MessageBox", PropType.Confirm, "登録してよろしいですか？");
+
+	    // OKボタンをクリックした場合
+	    if (comFunc.getResponse() == MessageResponse.OK) {
 
 	    	// 面接日、開始時間から開始日時を作成
 	    	String strStartDate = lblNowYear.getText() + "/" + txtMeetingMonth.getText() +
@@ -657,13 +369,10 @@ public class ScheduleMngController implements Initializable {
 		}
 
 		// 確認メッセージ表示
-	    Alert alrt = new Alert(AlertType.CONFIRMATION);
-	    alrt.setTitle("更新");
-	    alrt.setHeaderText(null);
-	    alrt.setContentText("更新してよろしいですか？");
-	    Optional<ButtonType> result = alrt.showAndWait();
-	    //OKボタンがクリックされたら
-	    if (result.get() == ButtonType.OK) {
+		comFunc.showMessage("MessageBox", PropType.Confirm, "更新してよろしいですか？");
+
+		// OKボタンをクリックした場合
+	    if (comFunc.getResponse() == MessageResponse.OK) {
 
 	    	// 面接日、開始時間から開始日時を作成
 	    	String strStartDate = lblNowYear.getText() + "/" + txtMeetingMonth.getText() +
@@ -699,13 +408,10 @@ public class ScheduleMngController implements Initializable {
 	private void btnDelete_Click(ActionEvent event) throws IOException, SQLException {
 
 		// 確認メッセージ表示
-	    Alert alrt = new Alert(AlertType.CONFIRMATION);
-	    alrt.setTitle("削除");
-	    alrt.setHeaderText(null);
-	    alrt.setContentText("削除してよろしいですか？");
-	    Optional<ButtonType> result = alrt.showAndWait();
-	    //OKボタンがクリックされたら
-	    if (result.get() == ButtonType.OK) {
+		comFunc.showMessage("MessageBox", PropType.Confirm, "削除してよろしいですか？");
+
+		// OKボタンをクリックした場合
+		if (comFunc.getResponse() == MessageResponse.OK) {
 
 	    	// 入力された値で、データ削除処理を実施
 	    	int resultCount = dms.deleteScheduleData(intTargetScheduleID);
@@ -842,7 +548,7 @@ public class ScheduleMngController implements Initializable {
 
 	// 入力値チェック処理
 	// 引数
-	// LocalDate nowDate
+	// なし
 	// 戻り値
 	// true：入力値にエラー箇所あり
 	// false：入力値にエラー箇所なし

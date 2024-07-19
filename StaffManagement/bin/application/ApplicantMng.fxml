@@ -1,24 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.paint.Color?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ApplicantMngController">
    <children>
-      <Label text="応募者管理" textAlignment="JUSTIFY" textFill="#1010e8">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="610.0" layoutX="16.0" layoutY="14.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="721.0" />
+      <Label alignment="CENTER" layoutX="47.0" layoutY="28.0" prefHeight="34.0" prefWidth="255.0" style="-fx-background-color: #263F73;" text="応募者管理" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="Yu Mincho Regular" size="21.0" />
          </font>
          <effect>
-            <DropShadow height="5.86" radius="2.0700000000000003" width="4.42">
-               <color>
-                  <Color red="0.1731237769126892" green="0.3815789520740509" blue="0.3746304512023926" />
-               </color>
-            </DropShadow>
+            <InnerShadow />
          </effect>
       </Label>
+      <Label alignment="CENTER" layoutX="104.0" layoutY="71.0" prefHeight="34.0" prefWidth="141.0" style="-fx-background-color: #263F73;" text="応募者一覧" textFill="WHITE">
+         <font>
+            <Font name="Yu Mincho Regular" size="12.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/Applicant.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <HBox layoutX="47.0" layoutY="128.0" prefHeight="36.0" prefWidth="179.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="164.0" style="-fx-background-color: #263F73;" text="応募者ID" textFill="WHITE">
+               <font>
+                  <Font name="Yu Mincho Regular" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <TextField fx:id="txtSearchAplId" prefHeight="36.0" prefWidth="150.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="226.0" layoutY="128.0" prefHeight="36.0" prefWidth="209.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="141.0" style="-fx-background-color: #263F73;" text="応募者名" textFill="WHITE">
+               <font>
+                  <Font name="Yu Mincho Regular" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <TextField fx:id="txtSearchAplName" prefHeight="36.0" prefWidth="150.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="47.0" layoutY="164.0" prefHeight="36.0" prefWidth="199.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="96.0" style="-fx-background-color: #263F73;" text="面接実施" textFill="WHITE">
+               <font>
+                  <Font name="Yu Mincho Regular" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <ComboBox fx:id="cmbConducted" prefHeight="36.0" prefWidth="104.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="245.0" layoutY="164.0" prefHeight="36.0" prefWidth="190.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="141.0" style="-fx-background-color: #263F73;" text="合否" textFill="WHITE">
+               <font>
+                  <Font name="Yu Mincho Regular" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <ComboBox fx:id="cmbResult" prefHeight="36.0" prefWidth="150.0" />
+         </children>
+      </HBox>
+      <Button fx:id="btnSearch" layoutX="542.0" layoutY="170.0" mnemonicParsing="false" onAction="#btnSearch_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="検索" textFill="WHITE" />
+      <TableView fx:id="table" layoutX="70.0" layoutY="266.0" onMouseClicked="#table_Clicked" prefHeight="255.0" prefWidth="606.0">
+        <columns>
+          <TableColumn fx:id="colApplicantId" prefWidth="75.0" text="応募者ID" />
+          <TableColumn fx:id="colApplicantName" prefWidth="147.0" text="応募者名" />
+            <TableColumn fx:id="colGender" prefWidth="59.0" text="性別" />
+            <TableColumn fx:id="colAge" prefWidth="56.0" text="年齢" />
+            <TableColumn fx:id="colTelephone" prefWidth="104.0" text="電話番号" />
+            <TableColumn fx:id="colConducted" text="面接実施" />
+            <TableColumn fx:id="colResult" prefWidth="83.0" text="合否" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnDetail" layoutX="542.0" layoutY="559.0" mnemonicParsing="false" onAction="#btnDetail_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="詳細画面へ" textFill="WHITE" />
+      <Line endX="310.0" endY="2.0" layoutX="337.0" layoutY="229.0" opacity="0.28" startX="-252.0" startY="2.0" />
+      <Button fx:id="btnClear" layoutX="542.0" layoutY="128.0" mnemonicParsing="false" onAction="#btnClear_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="値クリア" textFill="WHITE" />
    </children>
-</StackPane>
+</AnchorPane>

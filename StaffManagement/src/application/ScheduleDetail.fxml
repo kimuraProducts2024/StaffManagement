@@ -51,7 +51,7 @@
          </effect>
       </Label>
       <TextField fx:id="txtSearchScheId" layoutX="173.0" layoutY="130.0" prefHeight="36.0" prefWidth="79.0" />
-      <Label alignment="CENTER" layoutX="252.0" layoutY="130.0" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="実施日時" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="252.0" layoutY="130.0" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="面接実施日" textFill="WHITE">
          <font>
             <Font name="Yu Mincho Regular" size="12.0" />
          </font>
@@ -116,7 +116,7 @@
             <TextField fx:id="txtSearchAplName" prefHeight="36.0" prefWidth="150.0" />
          </children>
       </HBox>
-      <Button fx:id="btnSearch" layoutX="516.0" layoutY="202.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="検索" textFill="WHITE" />
+      <Button fx:id="btnSearch" layoutX="516.0" layoutY="202.0" mnemonicParsing="false" onAction="#btnSearch_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="検索" textFill="WHITE" />
       <VBox layoutX="77.0" layoutY="283.0" prefHeight="245.0" prefWidth="600.0">
          <children>
             <HBox prefHeight="36.0" prefWidth="600.0">
@@ -324,7 +324,7 @@
                <children>
                   <HBox prefHeight="52.0" prefWidth="150.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #263F73;" text="備考" textFill="WHITE">
+                        <Label alignment="CENTER" prefHeight="77.0" prefWidth="150.0" style="-fx-background-color: #263F73;" text="備考" textFill="WHITE">
                            <font>
                               <Font name="Yu Mincho Regular" size="12.0" />
                            </font>
@@ -343,10 +343,10 @@
             </HBox>
          </children>
       </VBox>
-      <Button fx:id="btnRegist" layoutX="45.0" layoutY="568.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="登録" textFill="WHITE" />
-      <Button fx:id="btnUpdate" layoutX="215.0" layoutY="568.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="更新" textFill="WHITE" />
-      <Button fx:id="btnDelete" layoutX="385.0" layoutY="568.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleDeleteButton" text="削除" textFill="WHITE" />
-      <Button fx:id="btnClear" layoutX="555.0" layoutY="568.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="値クリア" textFill="WHITE" />
+      <Button fx:id="btnRegist" layoutX="45.0" layoutY="568.0" mnemonicParsing="false" onAction="#btnRegist_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="登録" textFill="WHITE" />
+      <Button fx:id="btnUpdate" layoutX="215.0" layoutY="568.0" mnemonicParsing="false" onAction="#btnUpdate_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="更新" textFill="WHITE" />
+      <Button fx:id="btnDelete" layoutX="385.0" layoutY="568.0" mnemonicParsing="false" onAction="#btnDelete_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleDeleteButton" text="削除" textFill="WHITE" />
+      <Button fx:id="btnClear" layoutX="555.0" layoutY="568.0" mnemonicParsing="false" onAction="#btnClear_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="値クリア" textFill="WHITE" />
       <Line endX="310.0" endY="2.0" layoutX="348.0" layoutY="545.0" opacity="0.28" startX="-252.0" startY="2.0" />
       <Line endX="310.0" endY="2.0" layoutX="348.0" layoutY="259.0" opacity="0.28" startX="-252.0" startY="2.0" />
    </children>

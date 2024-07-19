@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.InterviewDocsController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="610.0" layoutX="20.0" layoutY="14.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="721.0" />
+      <Label alignment="CENTER" layoutX="47.0" layoutY="28.0" prefHeight="34.0" prefWidth="255.0" style="-fx-background-color: #263F73;" text="各種帳票出力" textFill="WHITE">
+         <font>
+            <Font name="Yu Mincho Regular" size="21.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="104.0" layoutY="71.0" prefHeight="34.0" prefWidth="141.0" style="-fx-background-color: #263F73;" text="面接関連" textFill="WHITE">
+         <font>
+            <Font name="Yu Mincho Regular" size="12.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/VariousLedger.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <Line endX="310.0" endY="2.0" layoutX="333.0" layoutY="264.0" opacity="0.28" startX="-252.0" startY="2.0" />
+      <ImageView fx:id="image1" fitHeight="80.0" fitWidth="79.0" layoutX="512.0" layoutY="283.0" onMouseClicked="#image1MouseClicked" onMouseEntered="#image1MouseEntered" onMouseExited="#image1MouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/ExcelOutput.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image2" fitHeight="80.0" fitWidth="79.0" layoutX="512.0" layoutY="363.0" onMouseClicked="#image2MouseClicked" onMouseEntered="#image2MouseEntered" onMouseExited="#image2MouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/ExcelOutput.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image3" fitHeight="80.0" fitWidth="79.0" layoutX="512.0" layoutY="443.0" onMouseClicked="#image3MouseClicked" onMouseEntered="#image3MouseEntered" onMouseExited="#image3MouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/ExcelOutput.png" />
+         </image>
+      </ImageView>
+      <Line endX="142.0" endY="2.0" layoutX="339.0" layoutY="347.0" opacity="0.28" startX="-252.0" startY="2.0" />
+      <Line endX="142.0" endY="2.0" layoutX="339.0" layoutY="429.0" opacity="0.28" startX="-252.0" startY="2.0" />
+      <Line endX="142.0" endY="2.0" layoutX="339.0" layoutY="510.0" opacity="0.28" startX="-252.0" startY="2.0" />
+      <Label layoutX="102.0" layoutY="283.0" prefHeight="57.0" prefWidth="312.0" text="面接シート">
+         <font>
+            <Font name="Yu Mincho Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="102.0" layoutY="363.0" prefHeight="57.0" prefWidth="312.0" text="面接評価シート">
+         <font>
+            <Font name="Yu Mincho Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="102.0" layoutY="443.0" prefHeight="57.0" prefWidth="312.0" text="面接後アンケートシート">
+         <font>
+            <Font name="Yu Mincho Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="102.0" layoutY="196.0" prefHeight="57.0" prefWidth="312.0" text="ダウンロード資料">
+         <font>
+            <Font name="Yu Mincho Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="462.0" layoutY="196.0" prefHeight="57.0" prefWidth="218.0" text="ダウンロードボタン">
+         <font>
+            <Font name="Yu Mincho Regular" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

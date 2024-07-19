@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="638.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StaffDetailController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="610.0" layoutX="15.0" layoutY="14.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="721.0" />
+      <Label alignment="CENTER" layoutX="46.0" layoutY="28.0" prefHeight="34.0" prefWidth="255.0" style="-fx-background-color: #263F73;" text="従業員管理" textFill="WHITE">
+         <font>
+            <Font name="Yu Mincho Regular" size="21.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" layoutX="103.0" layoutY="71.0" prefHeight="34.0" prefWidth="141.0" style="-fx-background-color: #263F73;" text="従業員詳細" textFill="WHITE">
+         <font>
+            <Font name="Yu Mincho Regular" size="12.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/StaffMng.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <HBox layoutX="328.0" layoutY="47.0" prefHeight="28.0" prefWidth="169.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="28.0" prefWidth="121.0" style="-fx-background-color: #263F73;" text="従業員ID" textFill="WHITE">
+               <font>
+                  <Font name="Yu Mincho Regular" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <TextField fx:id="txtTitleId" editable="false" prefHeight="36.0" prefWidth="150.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="328.0" layoutY="74.0" prefHeight="28.0" prefWidth="277.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="28.0" prefWidth="89.0" style="-fx-background-color: #263F73;" text="従業員氏名" textFill="WHITE">
+               <font>
+                  <Font name="Yu Mincho Regular" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <TextField fx:id="txtTitleName" editable="false" prefHeight="36.0" prefWidth="226.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="328.0" layoutY="102.0" prefHeight="28.0" prefWidth="277.0">
+         <children>
+            <Button fx:id="btnFileChooser" mnemonicParsing="false" onAction="#btnFileChooser_Click" prefHeight="26.0" prefWidth="130.0" styleClass="ScheduleButton" text="顔写真選択" textFill="WHITE" />
+            <TextField fx:id="txtFilePath" prefHeight="36.0" prefWidth="226.0">
+               <font>
+                  <Font size="8.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <ImageView fx:id="StaffImage" fitHeight="90.0" fitWidth="90.0" layoutX="625.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/SampleImage.png" />
+         </image>
+      </ImageView>
+      <TabPane layoutX="44.0" layoutY="139.0" prefHeight="429.0" prefWidth="672.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="基本情報">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="377.0" prefWidth="670.0">
+                     <children>
+                        <VBox layoutX="21.0" layoutY="16.0" prefHeight="336.0" prefWidth="629.0">
+                           <children>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="271.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="105.0" style="-fx-background-color: #263F73;" text="従業員ID" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <Label fx:id="lblStaffId" alignment="CENTER" prefHeight="36.0" prefWidth="168.0" style="-fx-border-color: #d6d4ca;" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="338.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="116.0" style="-fx-background-color: #263F73;" text="従業員氏名" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtStaffName" prefHeight="36.0" prefWidth="201.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="33.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="33.0" prefWidth="632.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="性別" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <ComboBox fx:id="cmbGender" prefHeight="33.0" prefWidth="111.0" />
+                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #263F73;" text="年齢" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtAge" prefHeight="33.0" prefWidth="91.0" />
+                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="73.0" style="-fx-background-color: #263F73;" text="国籍" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <ComboBox fx:id="cmbNationality" prefHeight="33.0" prefWidth="140.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="600.0">
+                                       <children>
+                                          <HBox prefHeight="36.0" prefWidth="282.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #263F73;" text="電話番号" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Yu Mincho Regular" size="12.0" />
+                                                   </font>
+                                                   <effect>
+                                                      <InnerShadow />
+                                                   </effect>
+                                                </Label>
+                                                <TextField fx:id="txtTelephone" prefHeight="38.0" prefWidth="206.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="36.0" prefWidth="318.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="36.0" prefWidth="116.0" style="-fx-background-color: #263F73;" text="Email" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Yu Mincho Regular" size="12.0" />
+                                                   </font>
+                                                   <effect>
+                                                      <InnerShadow />
+                                                   </effect>
+                                                </Label>
+                                                <TextField fx:id="txtEmail" prefHeight="36.0" prefWidth="304.0" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="216.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="105.0" style="-fx-background-color: #263F73;" text="郵便番号" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtPostCode" prefHeight="36.0" prefWidth="111.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="209.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="93.0" style="-fx-background-color: #263F73;" text="都道府県" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtPrefetcures" prefHeight="36.0" prefWidth="115.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="210.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="93.0" style="-fx-background-color: #263F73;" text="市区町村" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtMunicipalities" prefHeight="36.0" prefWidth="127.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="39.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="39.0" prefWidth="104.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #263F73;" text="その他住所" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="39.0" prefWidth="525.0">
+                                       <children>
+                                          <TextArea fx:id="txtAddress" prefHeight="39.0" prefWidth="525.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="243.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="111.0" style="-fx-background-color: #263F73;" text="マイナンバー" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtMynumber" prefHeight="36.0" prefWidth="146.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="214.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="61.0" style="-fx-background-color: #263F73;" text="部署" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <ComboBox fx:id="cmbDepartment" prefHeight="36.0" prefWidth="165.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="172.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="54.0" style="-fx-background-color: #263F73;" text="役職" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <ComboBox fx:id="cmbPost" prefHeight="50.0" prefWidth="121.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="240.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="給料" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <ComboBox fx:id="cmbSalary" prefHeight="36.0" prefWidth="132.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="入社日" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <DatePicker fx:id="dateJoin" prefHeight="36.0" prefWidth="142.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="99.0" style="-fx-background-color: #263F73;" text="退職日" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <DatePicker fx:id="dateRetire" prefHeight="36.0" prefWidth="142.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="84.0" prefWidth="629.0">
+                                 <children>
+                                    <HBox prefHeight="39.0" prefWidth="104.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="85.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="備考" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="84.0" prefWidth="525.0">
+                                       <children>
+                                          <TextArea fx:id="txtRemarks" prefHeight="84.0" prefWidth="528.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="付帯情報">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="21.0" layoutY="16.0" prefHeight="336.0" prefWidth="629.0">
+                           <children>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="106.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="緊急連絡先" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="33.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="33.0" prefWidth="632.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="氏名" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtEmergencyname" prefHeight="33.0" prefWidth="143.0" />
+                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="77.0" style="-fx-background-color: #263F73;" text="続柄" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtEmergencySequel" prefHeight="33.0" prefWidth="91.0" />
+                                          <HBox prefHeight="33.0" prefWidth="214.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="33.0" prefWidth="73.0" style="-fx-background-color: #263F73;" text="電話番号" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Yu Mincho Regular" size="12.0" />
+                                                   </font>
+                                                   <effect>
+                                                      <InnerShadow />
+                                                   </effect>
+                                                </Label>
+                                                <TextField fx:id="txtEmergencyTelephone" prefHeight="33.0" prefWidth="143.0" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="216.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="105.0" style="-fx-background-color: #263F73;" text="郵便番号" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtEmergencyPostCode" prefHeight="36.0" prefWidth="111.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="209.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="93.0" style="-fx-background-color: #263F73;" text="都道府県" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtEmergencyPrefectures" prefHeight="36.0" prefWidth="115.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="210.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="93.0" style="-fx-background-color: #263F73;" text="市区町村" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtEmergencyMunicip" prefHeight="36.0" prefWidth="127.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="39.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="39.0" prefWidth="104.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #263F73;" text="その他住所" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="39.0" prefWidth="525.0">
+                                       <children>
+                                          <TextArea fx:id="txtEmergencyAddress" prefHeight="39.0" prefWidth="525.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="179.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="配偶者" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtSpouse" prefHeight="36.0" prefWidth="75.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="151.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="76.0" style="-fx-background-color: #263F73;" text="扶養義務" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtSupport" prefHeight="36.0" prefWidth="75.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="299.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="74.0" style="-fx-background-color: #263F73;" text="最終学歴" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtEducation" prefHeight="36.0" prefWidth="225.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="300.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="取得資格1" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtQualification1" prefHeight="36.0" prefWidth="196.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="300.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="取得資格2" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtQualification2" prefHeight="36.0" prefWidth="196.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="300.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="取得資格3" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtQualification3" prefHeight="36.0" prefWidth="196.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="300.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="取得資格4" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtQualification4" prefHeight="36.0" prefWidth="196.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="300.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="取得資格5" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtQualification5" prefHeight="36.0" prefWidth="196.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="300.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="取得資格6" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtQualification6" prefHeight="36.0" prefWidth="196.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="300.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="取得資格7" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtQualification7" prefHeight="36.0" prefWidth="196.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="口座情報">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="21.0" layoutY="16.0" prefHeight="349.0" prefWidth="629.0">
+                           <children>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="271.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="105.0" style="-fx-background-color: #263F73;" text="社会保険番号" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtSocialNumber" prefHeight="36.0" prefWidth="168.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="338.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="基礎年金番号" textFill="WHITE">
+                                       <font>
+                                          <Font name="Yu Mincho Regular" size="12.0" />
+                                       </font>
+                                       <effect>
+                                          <InnerShadow />
+                                       </effect>
+                                    </Label>
+                                    <TextField fx:id="txtBasicPensionNumber" prefHeight="36.0" prefWidth="201.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="33.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="33.0" prefWidth="632.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="33.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="金融機関コード" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtFainancialInstitudeCode" prefHeight="33.0" prefWidth="167.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="630.0">
+                                       <children>
+                                          <HBox prefHeight="36.0" prefWidth="310.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="36.0" prefWidth="131.0" style="-fx-background-color: #263F73;" text="金融機関名" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Yu Mincho Regular" size="12.0" />
+                                                   </font>
+                                                   <effect>
+                                                      <InnerShadow />
+                                                   </effect>
+                                                </Label>
+                                                <TextField fx:id="txtFainancialInstitudeName" prefHeight="36.0" prefWidth="233.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="36.0" prefWidth="319.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="36.0" prefWidth="116.0" style="-fx-background-color: #263F73;" text="金融機関名カナ" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Yu Mincho Regular" size="12.0" />
+                                                   </font>
+                                                   <effect>
+                                                      <InnerShadow />
+                                                   </effect>
+                                                </Label>
+                                                <TextField fx:id="txtFainancialInstitudeKana" prefHeight="36.0" prefWidth="178.0" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="216.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="支店コード" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtBranchCode" prefHeight="36.0" prefWidth="111.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="104.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #263F73;" text="支店名" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="39.0" prefWidth="525.0">
+                                       <children>
+                                          <TextField fx:id="txtBranchName" prefHeight="36.0" prefWidth="146.0" />
+                                          <Label alignment="CENTER" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #263F73;" text="支店名カナ" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtBranchNameKana" prefHeight="42.0" prefWidth="146.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="243.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="111.0" style="-fx-background-color: #263F73;" text="預金種類" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtDepositKind" prefHeight="36.0" prefWidth="146.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="320.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: #263F73;" text="口座番号" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtAccountNumber" prefHeight="36.0" prefWidth="191.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="630.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="310.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="131.0" style="-fx-background-color: #263F73;" text="口座名義人" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtAccountName" prefHeight="36.0" prefWidth="233.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="319.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="116.0" style="-fx-background-color: #263F73;" text="口座名義人カナ" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtAccountNameKana" prefHeight="36.0" prefWidth="178.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="630.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="310.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="131.0" style="-fx-background-color: #263F73;" text="受取人名義" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtRecipientName" prefHeight="36.0" prefWidth="233.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="319.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="36.0" prefWidth="116.0" style="-fx-background-color: #263F73;" text="受取人名義カナ" textFill="WHITE">
+                                             <font>
+                                                <Font name="Yu Mincho Regular" size="12.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </Label>
+                                          <TextField fx:id="txtRecipientNameKana" prefHeight="36.0" prefWidth="178.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="btnRegist" layoutX="46.0" layoutY="576.0" mnemonicParsing="false" onAction="#btnRegist_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="登録" textFill="WHITE" />
+      <Button fx:id="btnUpdate" layoutX="216.0" layoutY="576.0" mnemonicParsing="false" onAction="#btnUpdate_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="更新" textFill="WHITE" />
+      <Button fx:id="btnDelete" layoutX="386.0" layoutY="576.0" mnemonicParsing="false" onAction="#btnDelete_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleDeleteButton" text="削除" textFill="WHITE" />
+      <Button fx:id="btnClear" layoutX="556.0" layoutY="576.0" mnemonicParsing="false" onAction="#btnClear_Click" prefHeight="36.0" prefWidth="161.0" styleClass="ScheduleButton" text="値クリア" textFill="WHITE" />
+   </children>
+</AnchorPane>

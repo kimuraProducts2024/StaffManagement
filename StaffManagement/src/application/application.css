@@ -85,3 +85,60 @@
 .ScheduleDeleteButton:hover {
 	-fx-background-color: #55295b;
 }
+
+.table-view .table-cell {
+	-fx-border-color: #d3d3d3;
+	-fx-font-family: "Yu Mincho";
+	-fx-alignment: center;
+}
+
+
+.column-header {
+	-fx-pref-height: 40px;
+	-fx-border-color: #d3d3d3;
+	-fx-background-color:#339966;
+	-fx-font-family: "Yu Mincho";
+}
+
+.table-view .column-header .label{
+	-fx-text-fill: #fff;
+	-fx-font-weight: bold;
+}
+
+.table-view .placeholder .label {
+	-fx-text-fill: red;
+	-fx-padding:20px;
+	-fx-font-family: "Yu Mincho";
+}
+
+.tab-pane  {
+	-fx-border-color: #d3d3d3;
+}
+
+.tab-header-area .tab-header-background {
+	-fx-border-color: #d3d3d3;
+ 	-fx-background-color:#339966;
+}
+
+.tab {
+	-fx-padding:10px;
+	-fx-background-color:#fff;
+}
+
+.tab:hover {
+	-fx-text-fill:#fff;
+	-fx-background-color:#55295b;
+}
+
+.tab-label {
+	-fx-text-fill:#339966;
+	-fx-font-family: "Yu Mincho";
+}
+
+.tab:hover .tab-label {
+	-fx-text-fill:#fff;
+}
+
+.tab:active .tab-label {
+	-fx-border-color: #55295b;
+}

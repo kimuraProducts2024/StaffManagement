@@ -34,34 +34,39 @@ public class MessageBoxController implements Initializable {
 
     private static String strMessage;
 
+    public static MessageResponse response = MessageResponse.Cancel;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-			if (propType == PropType.Info) {
-				lblTitle.setText("お知らせ");
-				lblMessage.setTextFill(Color.BLACK);
-				imageView.setImage(new Image(Paths.get("bin/imgs/Info.png").toUri().toString()));
-				btnButton1.setVisible(false);
-				btnButton2.setText("OK");
-			} else if (propType == PropType.Confirm) {
-				lblTitle.setText("確認");
-				lblMessage.setTextFill(Color.BLACK);
-				imageView.setImage(new Image(Paths.get("bin/imgs/Confirm.png").toUri().toString()));
-				btnButton1.setText("OK");
-				btnButton2.setText("キャンセル");
-			} else if (propType == PropType.Warning) {
-				lblTitle.setText("警告");
-				lblMessage.setTextFill(Color.BLACK);
-				imageView.setImage(new Image(Paths.get("bin/imgs/Warning.png").toUri().toString()));
-				btnButton1.setVisible(false);
-				btnButton2.setText("OK");
-			} else {
-				lblTitle.setText("エラー");
-				lblMessage.setTextFill(Color.RED);
-				imageView.setImage(new Image(Paths.get("bin/imgs/Error.png").toUri().toString()));
-				btnButton1.setVisible(false);
-				btnButton2.setText("OK");
-			}
-			lblMessage.setText(strMessage);
+
+    	response = MessageResponse.Cancel;
+
+		if (propType == PropType.Info) {
+			lblTitle.setText("お知らせ");
+			lblMessage.setTextFill(Color.BLACK);
+			imageView.setImage(new Image(Paths.get("bin/imgs/Info.png").toUri().toString()));
+			btnButton1.setVisible(false);
+			btnButton2.setText("OK");
+		} else if (propType == PropType.Confirm) {
+			lblTitle.setText("確認");
+			lblMessage.setTextFill(Color.BLACK);
+			imageView.setImage(new Image(Paths.get("bin/imgs/Confirm.png").toUri().toString()));
+			btnButton1.setText("OK");
+			btnButton2.setText("キャンセル");
+		} else if (propType == PropType.Warning) {
+			lblTitle.setText("警告");
+			lblMessage.setTextFill(Color.BLACK);
+			imageView.setImage(new Image(Paths.get("bin/imgs/Warning.png").toUri().toString()));
+			btnButton1.setVisible(false);
+			btnButton2.setText("OK");
+		} else {
+			lblTitle.setText("エラー");
+			lblMessage.setTextFill(Color.RED);
+			imageView.setImage(new Image(Paths.get("bin/imgs/Error.png").toUri().toString()));
+			btnButton1.setVisible(false);
+			btnButton2.setText("OK");
+		}
+		lblMessage.setText(strMessage);
     }
 
     // btnButton1クリックイベント
@@ -70,8 +75,9 @@ public class MessageBoxController implements Initializable {
  	// 戻り値
  	// なし
     @FXML
-    public MessageResponse btnButton1_Click(ActionEvent event) {
-    	return MessageResponse.OK;
+    public void btnButton1_Click(ActionEvent event) {
+    	btnButton1.getScene().getWindow().hide();
+    	response = MessageResponse.OK;
     }
 
     // btnButton2クリックイベント
@@ -80,12 +86,12 @@ public class MessageBoxController implements Initializable {
  	// 戻り値
  	// なし
     @FXML
-    public MessageResponse btnButton2_Click(ActionEvent event) {
+    public void btnButton2_Click(ActionEvent event) {
     	btnButton2.getScene().getWindow().hide();
     	if(propType == PropType.Info || propType == PropType.Warning) {
-    		return MessageResponse.OK;
+    		response = MessageResponse.OK;
     	} else {
-    		return MessageResponse.Cancel;
+    		response = MessageResponse.Cancel;
     	}
     }
 
