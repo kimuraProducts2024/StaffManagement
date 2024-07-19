@@ -22,4 +22,6 @@
 社員管理
 各種帳票出力
 
-詳しくは、デモ資料：
+詳しくは、デモ資料に記載しました。
+https://github.com/kimuraProducts2024/StaffManagement/blob/master
+人材管理システム_デモ.xlsx
